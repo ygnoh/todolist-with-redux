@@ -7,8 +7,8 @@ class TodoList extends Component {
     render () {
         return (
             <div>
-                <InputArea />
-                <ShowArea todos={this.props.todos}/>
+                <InputArea handleSave={this.props.handleSave} />
+                <ShowArea todos={this.props.todos} />
             </div>
         )
     }
