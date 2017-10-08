@@ -1,4 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import * as actions from '../actions';
 
 import InputArea from './InputArea';
 import ShowArea from './ShowArea';
@@ -14,4 +17,16 @@ class TodoList extends Component {
     }
 }
 
-export default TodoList
+const mapStateToProps = (state) => {
+    return {
+        todos: state.inputArea.contents,
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        handleSave: (contents) => {dispatch(actions.saveTodo(contents))},
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList)
