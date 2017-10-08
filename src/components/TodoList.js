@@ -8,7 +8,7 @@ class TodoList extends Component {
         return (
             <div>
                 <InputArea />
-                <ShowArea />
+                <ShowArea todos={this.props.todos}/>
             </div>
         )
     }

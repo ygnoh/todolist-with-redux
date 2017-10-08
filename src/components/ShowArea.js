@@ -1,16 +1,29 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const ShowArea = () => {
+import Todo from './Todo';
+
+const propTypes = {
+    todos: PropTypes.array,
+};
+
+const defaultProps = {
+    todos: ["nothing to do"],
+};
+
+
+const ShowArea = ({todos}) => {
     return (
         <div>
             <h3>TODOS</h3>
             <ul>
-                <li>Sample todos</li>
-                <li>Sample todos</li>
-                <li>Sample todos</li>
+                {todos.map((todo, idx) => <Todo contents={todo} key={idx} />)}
             </ul>
         </div>
     );
 };
 
-export default ShowArea   
+ShowArea.propTypes = propTypes;
+ShowArea.defaultProps = defaultProps;
+
+export default ShowArea
