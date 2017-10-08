@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 const propTypes = {
@@ -9,13 +9,28 @@ const defaultProps = {
     handleSave: () => { console.warn("It is not implemented yet") },
 };
 
-const InputArea = ({handleSave}) => {
-    return (
-        <div>
-            <input type="text" />
-            <button onClick={handleSave}>save</button>
-        </div>
-    );
+class InputArea extends Component {
+    constructor(props) {
+        super(props);
+
+        this._saveContents = this._saveContents.bind(this);
+    }
+
+
+    _saveContents() {
+        const contents = this.refs.input.value;
+
+        this.props.handleSave(contents);
+    }
+
+    render() {
+        return (
+            <div>
+                <input type="text" ref="input" />
+                <button onClick={this._saveContents}>save</button>
+            </div>
+        );
+    }
 };
 
 InputArea.defaultProps = defaultProps;
