@@ -1,10 +1,14 @@
 import React, { Component } from 'react'
 
+import InputArea from './InputArea';
+import ShowArea from './ShowArea';
+
 class TodoList extends Component {
     render () {
         return (
             <div>
-                TodoList
+                <InputArea />
+                <ShowArea />
             </div>
         )
     }
