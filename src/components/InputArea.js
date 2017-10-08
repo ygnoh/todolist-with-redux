@@ -3,7 +3,8 @@ import React from 'react';
 const InputArea = () => {
     return (
         <div>
-            InputArea
+            <input type="text" />
+            <button>save</button>
         </div>
     );
 };
